@@ -122,11 +122,12 @@ export const cancelTransfer = async (
 ) => {
     try {
         const { bookingReference } = req.params;
+        console.log(bookingReference)
         const { id } = req.user!;
 
         const { data }: { data: TransferConfirmation } = await axios({
             method: "delete",
-            url: `${config.HOTELBEDS_API_URI}/bookings/en/${bookingReference}`,
+            url: `${config.HOTELBEDS_API_URI}/bookings/en/reference/${bookingReference}`,
             headers: {
                 "Api-key": config.HOTELBEDS_API_KEY,
                 "Content-Type": "application/json",
